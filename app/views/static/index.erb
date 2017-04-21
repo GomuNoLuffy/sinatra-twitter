@@ -1,2 +1,20 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<h2>Welcome to Twitter</h2>
+<p> Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
+
+<form method=post action=/login>
+    <input type=text placeholder="Email" name="user[email]"><br>
+    <input type=password placeholder="Password" name="user[password]"></br>
+    <input type=submit value="Log in">
+</form>
+<%= @error if @error.present? %> 
+
+
+<h3>New to Twitter? Sign up!</h3>
+<form method="post" action="/signup">
+    <input type=text placeholder="Full Name" name="user[name]"><br>
+    <input type=text placeholder="Username" name="user[username]"><br>
+    <input type=text placeholder="Email" name="user[email]"><br>
+    <input type=password placeholder="Password" name="user[password]"></br>
+    <input type=submit value="Sign up">
+</form>
+<%= @error if @error.present? %> 
