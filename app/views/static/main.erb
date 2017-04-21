@@ -11,5 +11,6 @@
 <%= @error if @error.present? %> 
 
 <% Tweet.all.each do |t| %>
-<p><a class="link" href="/tweets/<%= t.id %>"><%= t.title %></a> @<%= t.user.username %></p>
+<p><a class="link" href="/tweets/<%= t.id %>"><%= t.title %></a> <a href="/users/<%= t.user.id %>"> @<%= t.user.username %></a></p>
 <% end %>
+

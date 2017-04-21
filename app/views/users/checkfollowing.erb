@@ -1,0 +1,5 @@
+<p><%= @user.name %> is following:</p>
+<% @user.followed.each do |user| %>
+  <p>@<%=user.username %></p>
+  <br>
+<% end %>

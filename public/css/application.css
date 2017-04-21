@@ -1,0 +1,25 @@
+h1 {
+    font-family: 'Lobster';
+    font-size: 40px;
+    color: #162b0d;
+}
+
+a:link {
+    color: #f33f3f;
+}
+
+/* visited link */
+a:visited {
+    color: #489E6C;
+}
+
+/* mouse over link */
+a:hover {
+    color: pink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+

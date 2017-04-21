@@ -14,3 +14,21 @@ get '/tweets/:id' do
   @tweet = Tweet.find(params[:id])
   erb :"tweets/tweet"
 end
+
+
+delete '/tweets/:id' do
+  @tweet = Tweet.delete(params[:id])
+  redirect "/"
+end
+
+get '/tweets/:id/edit' do  #load edit form
+    @tweet = Tweet.find(params[:id])
+    erb :"tweets/edit"
+end
+
+patch '/tweets/:id' do #edit action
+  @tweet = Tweet.find(params[:id])
+  @tweet.title = params[:title]
+  @tweet.save
+  redirect "/tweets/#{@tweet.id}"
+end
