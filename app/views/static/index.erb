@@ -1,12 +1,20 @@
-<h2>Welcome to Twitter</h2>
-<p> Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
+<div class="jumbotron">
+  <div class="container">
+    <h2>Welcome to Twitter</h2>
+    <p> Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
 
-<form method=post action=/login>
+    <form method=post action=/login>
     <input type=text placeholder="Email" name="user[email]"><br>
     <input type=password placeholder="Password" name="user[password]"></br>
     <input type=submit value="Log in">
 </form>
 <%= @error if @error.present? %> 
+  </div>
+</div>
+
+
+
+
 
 
 <h3>New to Twitter? Sign up!</h3>

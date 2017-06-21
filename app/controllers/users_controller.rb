@@ -37,7 +37,7 @@ end
 
 get '/users/:id' do
   #if current_user && current_user.id == params[:id].to_i
-
+  
     id = params[:id]
     @user = User.find(id)
     erb :"users/profile" 
