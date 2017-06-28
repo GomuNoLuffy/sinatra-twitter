@@ -38,8 +38,9 @@
 </div>
 
 
-
+<% if @currenttweets.present? %>
 <div class="col-md-12">
+
 <% @currenttweets.each do |tweet|%>
 <div class="panel panel-default">
   <div class="panel-body">
@@ -53,8 +54,15 @@
 
 <% end %>
 
+
 </div>
+<% else %>
+
+<div class="col-md-3 col-md-offset-4">
+  <b style="text-align: center; display: block;">This user has no meows yet!</b>
 </div>
+
+<% end %>
 
 <script type="text/javascript">
   $("time.timeago").timeago();
