@@ -1,13 +1,26 @@
 
+.jumbotron {
+    background-image: url("/img/meow.jpg");
+    background-color: #17234E;
+    margin-bottom: 0;
+    min-height: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+
 .jumbotron h1 {
   font-family: Permanent Marker, serif;
-  color: #5fba7d;
+  color: #5D7474;
   font-size: 92px;
 }
 
 
 .jumbotron p {
-  width: 907px;
+  width: 1100px;
+  /*color: white;*/
 /*  margin-left: 190px;*/
   font-weight: 300;
   float: right;
