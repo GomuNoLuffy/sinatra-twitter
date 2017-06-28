@@ -1,6 +1,8 @@
+<div class="container"> 
 <p><%= @user.name %>'s follower(s):</p>
 
 <% @user.followers.each do |user| %>
   <p>@<%=user.username %></p>
 <br>
 <% end %> 
+</div>

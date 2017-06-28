@@ -17,27 +17,57 @@
 
 <!-- <a href="/users/<%= current_user.id %>">View Profile</a>
  -->
+<div class="container"> 
+ <div class= "row">
+<div class="col-md-3">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 style="display: inline;"><%= current_user.name %></h3>
+        <h4 style="display: inline;">@<%= current_user.username %></h4>
+      </div>
+      <div class="panel-body">
+         <p>Following: <a class="link" href="/users/<%= current_user.id %>/checkfollowing"><%= current_user.followed.count %></a> 
+         Followers: <a class="link" href="/users/<%= current_user.id %>/checkfollowers"><%= current_user.followers.count %></a></p>
+         <p>Meows: <%= current_user.tweets.count %> </p>
+      </div>
+    </div>
+
+
+</div>
+
+<div class="col-md-4">
+<div class="tweetarea">
 <form method="post" action="/tweet">
-    <input type=text placeholder="What's happening?" name="tweet[title]"></br>
-    <button type="submit" class="btn btn-primary">
-    <i class="icon-user icon-white"></i><span class="glyphicon glyphicon-pencil"></span> Tweet 
-   </button>
+    <textarea rows="2" cols="50" name="tweet[title]" placeholder="What's happening?"></textarea>
+    <span class="buttonfortxtarea"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Meow 
+   </button></span>
+
 
 </form>
 <%= @error if @error.present? %> 
-
+</div>
+</div>
+</div>
+ <div class= "row">
+<div class="col-md-12">
 <% @maintweets.each do |tweet| %>
-<p><a href="/users/<%= tweet.user.id %>"> @<%= tweet.user.username %></a> 
-<abbr class="timeago" title="<%= tweet.created_at.getutc.iso8601 %>">
-  <%= tweet.created_at.to_s %>
-</abbr>
+<div class="panel panel-default">
+  <div class="panel-body">
+  <p><a href="/users/<%= tweet.user.id %>"> @<%= tweet.user.username %></a> 
+  <time class="timeago" datetime="<%= tweet.created_at.getutc.iso8601.to_s %>"><%= tweet.created_at.strftime("%l:%M %p %v") %></time>
 </p>
 <p><a class="link" href="/tweets/<%= tweet.id %>"><%= tweet.title %></a></p>
-
+</div>
+</div>
 
 <% end %>
 
-<script type="text/javascript" >
-  $("abbr.timeago").timeago();
+</div>
+</div>
 
+
+</div>
+<script type="text/javascript">
+  $("time.timeago").timeago();
 </script>

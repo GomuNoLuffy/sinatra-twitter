@@ -18,10 +18,17 @@ class User < ActiveRecord::Base
 	validates :password, length: 8..20
 
 	has_secure_password
+
+  def follow!(user)
+    followed << user
+  end
     
-    def follow!(user)
-      followed << user
-    end
+  def self.search(search)
+    where('name ILIKE :term or username ILIKE :term', :term => "%#{search}%")
+  end
+
+
+
 
 end
 

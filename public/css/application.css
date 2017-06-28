@@ -1,3 +1,20 @@
+
+.jumbotron h1 {
+  font-family: Permanent Marker, serif;
+  color: #5fba7d;
+  font-size: 92px;
+}
+
+
+.jumbotron p {
+  width: 907px;
+/*  margin-left: 190px;*/
+  font-weight: 300;
+  float: right;
+}
+
+
+
 h1 {
     font-family: 'Lobster';
     font-size: 40px;
@@ -23,3 +40,22 @@ a:active {
     color: blue;
 }
 
+.tweetarea {
+   min-width: 490px;
+   position: relative;
+   display: inline-block;
+}
+
+.tweetarea textarea{
+    width: 490px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+
+.tweetarea span.buttonfortxtarea {
+    display: block;
+    text-align: right;
+ }
+  
+ 

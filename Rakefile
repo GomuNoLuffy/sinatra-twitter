@@ -7,6 +7,7 @@ require ::File.expand_path('../config/environments/init', __FILE__)
 # Require all ActiveSupport's class and extensions
 require 'active_support/core_ext'
 
+
 namespace :generate do
 	desc "Create empty model spec in spec, e.g., rake generate:spec NAME=test_name"
 	task :spec do
