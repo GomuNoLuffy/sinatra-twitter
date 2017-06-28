@@ -1,27 +1,61 @@
-<h2><%= @user.name %></h2>
-<h3>@<%= @user.username %></h3>
+<div class="container"> 
 
+ <div class= "row">
+<div class="col-md-3 col-md-offset-4">
 
-<% if current_user && current_user.id == params[:id].to_i %>
-<form action="/users/<%= @user.id %>/edit">
-    <input type="submit" value="Edit Profile" />
-</form>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+      <div style="text-align: center;">
+        <h3><%= @user.name %></h3>
+        <h4>@<%= @user.username %></h4>
+
+        <% if current_user && current_user.id == params[:id].to_i %>
+     <form action="/users/<%= @user.id %>/edit">
+       <input type="submit" value="Edit Profile" class="btn btn-default">
+     </form>
 <% else %>
-<div>
 	<form action="/users/<%= @user.id %>/follow" method="post">
-		<input type="submit" value="Follow" class="btn-default" >
+		<input type="submit" value="Follow" class="btn btn-default">
 	</form>
 
+
+<% end %>
+        </div>
+      </div>
+      <div class="panel-body">
+               <p style="text-align: center;">Meows: <%= @user.tweets.count %> </p>
+         <p style="text-align: center;">Following: <a class="link" href="/users/<%= @user.id %>/checkfollowing"><%= current_user.followed.count %></a> 
+         Followers: <a class="link" href="/users/<%= @user.id %>/checkfollowers"><%= current_user.followers.count %></a></p>
+
+      </div>
+    </div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="col-md-12">
+<% @currenttweets.each do |tweet|%>
+<div class="panel panel-default">
+  <div class="panel-body">
+  <p><a href="/users/<%= tweet.user.id %>"> @<%= tweet.user.username %></a> 
+ <time class="timeago" datetime="<%= tweet.created_at.getutc.iso8601.to_s %>"><%= tweet.created_at.strftime("%l:%M %p %v") %></time>
+</p>
+<p><a class="link" href="/tweets/<%= tweet.id %>"><%= tweet.title %></a></p>
+
+</div>
 </div>
 
 <% end %>
 
-<p>Following: <a class="link" href="/users/<%= @user.id %>/checkfollowing"><%= @user.followed.count %></a></p>
+</div>
+</div>
 
-<p>Follower: <a class="link" href="/users/<%= @user.id %>/checkfollowers"><%= @user.followers.count %></a></p>
-
-<%Tweet.where(user_id: @user.id).each do |tweet|%>
-<p><a class="link" href="/tweets/<%= tweet.id %>"><%= tweet.title %></a> @<%= tweet.user.username %></p>
-<% end %>
-
-
+<script type="text/javascript">
+  $("time.timeago").timeago();
+</script>

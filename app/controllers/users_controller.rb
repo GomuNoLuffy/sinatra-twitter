@@ -37,8 +37,9 @@ end
 
 get '/users/:id' do
   #if current_user && current_user.id == params[:id].to_i
-
+  
     id = params[:id]
+    @currenttweets = Tweet.where(user_id: id).order("created_at DESC")
     @user = User.find(id)
     erb :"users/profile" 
   #else 
@@ -82,3 +83,11 @@ get '/users/:id/checkfollowing' do
   #  redirect '/' 
   #end 
 end
+
+get '/search' do 
+  if params[:search]
+    @users = User.search(params[:search])
+  end
+  erb :"users/results" 
+end
+

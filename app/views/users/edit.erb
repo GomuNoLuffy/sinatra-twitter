@@ -1,3 +1,4 @@
+<div class="container"> 
 <form action="/users/<%= @user.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <input type="text" placeholder="Change your username" name="username" value="<%= @user.username %>">
@@ -6,3 +7,4 @@
   <input type="text" placeholder="Change your password" name="password" value="<%= @user.password %>">
   <input type="submit" value="Submit">
 </form>
+</div>

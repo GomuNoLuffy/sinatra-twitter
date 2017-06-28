@@ -8,6 +8,10 @@ end
 #
 # See http://www.rubyinside.com/ruby-techniques-revealed-autoload-1652.html
 #
+
+Time.zone = "Kuala Lumpur"
+ActiveRecord::Base.default_timezone = :local
+
 Dir[APP_ROOT.join('app', 'models', '*.rb')].each do |model_file|
 	filename = File.basename(model_file).gsub('.rb', '')
 	autoload ActiveSupport::Inflector.camelize(filename), model_file
