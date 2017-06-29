@@ -1,7 +1,7 @@
 #Sinatra Web Server
 
 
-Simple Twiiter features which include:
+Simple Twitter features which include:
 
 * See timeline
 * Post new tweet
