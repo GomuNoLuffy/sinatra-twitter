@@ -22,6 +22,15 @@ class User < ActiveRecord::Base
   def follow!(user)
     followed << user
   end
+  
+  def unfollow!(user)
+    followed.delete(user)
+  end 
+  
+  # Returns true if the current user is following the other user.
+  def following?(user)
+    followed.include?(user) 
+  end
     
   def self.search(search)
     where('name ILIKE :term or username ILIKE :term', :term => "%#{search}%")

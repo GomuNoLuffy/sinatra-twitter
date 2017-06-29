@@ -4,7 +4,11 @@ post "/users/:id/follow" do
   redirect "users/#{user.id}"
 end
 
-
+delete '/users/:id/unfollow' do
+  user = User.find(params[:id])
+  current_user.relationships.find_by(followed_id: params[:id]).destroy
+  redirect "users/#{user.id}"
+end
 
 
   # def create
