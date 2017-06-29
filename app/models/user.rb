@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true
 	validates :email, presence: true
 	validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, message: "Only valid email allowed."}
-	validates :password, length: 8..20
+	validates :password, length: 8..20, on: :create
 
 	has_secure_password
 
