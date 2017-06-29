@@ -20,7 +20,7 @@
    <div class="col-md-6">
      <div class="tweetarea">
        <form method="post" action="/tweet">
-         <textarea rows="2" cols="50" name="tweet[title]" placeholder="What's happening?"></textarea>
+         <textarea class="form-control" rows="3" cols="50" name="tweet[title]" placeholder="What's happening?" maxlength="140"></textarea>
          <span class="buttonfortxtarea"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Meow </button></span>
        </form>
       <%= @error if @error.present? %> 

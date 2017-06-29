@@ -12,3 +12,4 @@ end
 get '/main' do
 	erb :"static/main"
 end
+

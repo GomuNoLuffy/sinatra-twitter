@@ -4,7 +4,7 @@
   <p>Connect with your friends and engage with the com-meow-nity. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
 <div class="col-sm-12">
     <form method=post action=/login>
-    <input type=text placeholder="Email" name="user[email]" class="form-inline"><br>
+    <input type=email placeholder="Email" name="user[email]" class="form-inline"><br>
     <input type=password placeholder="Password" name="user[password]" class="form-inline"></br>
     <input type=submit value="Log in" class="btn btn-default">
 </form>
@@ -24,17 +24,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sign Up to Meowzr</h4>
+          <h4 class="modal-title">Join Meowzr today.</h4>
         </div>
         <div class="modal-body">
+         <div class="container">
             <form method="post" action="/signup">
-                <input type=text placeholder="Full Name" name="user[name]"><br>
-                <input type=text placeholder="Username" name="user[username]"><br>
-                <input type=text placeholder="Email" name="user[email]"><br>
-                <input type=password placeholder="Password" name="user[password]"></br>
-                <input type=submit value="Sign up">
+                <input type=text placeholder="Full name" name="user[name]" class="form-inline" required><br>
+                <input type=text placeholder="Username" name="user[username]" class="form-inline" required><br>
+                <input type=email placeholder="Email" name="user[email]" class="form-inline" required><br>
+                <input type=password placeholder="Password" name="user[password]" class="form-inline" required><br>
+                <input type=submit value="Sign up" class="btn btn-default">
             </form>
             <%= @signuperror if @signuperror.present? %> 
+            </div>
      </div> <!-- /.modal-body -->
     </div><!-- /.modal-content -->
    </div> <!-- /.modal-dialog -->

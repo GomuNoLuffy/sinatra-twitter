@@ -62,11 +62,13 @@ margin-top: 4px;">
           <h4 class="modal-title">Plot your Meow</h4>
         </div>
         <div class="modal-body">
-        <form method="post" action="/tweet">
-        <input type=text placeholder="What's happening?" name="tweet[title]" required></br>
-        <input type=submit value="Meow">
-    </form>
-    <%= @error if @error.present? %> 
+     <div class="tweetarea">
+       <form method="post" action="/tweet">
+         <textarea class="form-control" rows="3" cols="50" name="tweet[title]" placeholder="What's happening?" maxlength="140"></textarea>
+         <span class="buttonfortxtarea"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Meow </button></span>
+       </form>
+      <%= @error if @error.present? %> 
+     </div> 
 
         </div>
         <div class="modal-footer">
