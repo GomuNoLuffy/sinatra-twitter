@@ -23,9 +23,6 @@ class User < ActiveRecord::Base
     followed << user
   end
   
-  def unfollow!(user)
-    followed.delete(user)
-  end 
   
   # Returns true if the current user is following the other user.
   def following?(user)

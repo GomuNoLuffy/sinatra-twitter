@@ -8,8 +8,8 @@
         <h4 style="display: inline;">@<%= current_user.username %></h4>
       </div>
       <div class="panel-body">
-         <p>Following: <a class="link" href="/users/<%= current_user.id %>/checkfollowing"><%= current_user.followed.count %></a> 
-         Followers: <a class="link" href="/users/<%= current_user.id %>/checkfollowers"><%= current_user.followers.count %></a></p>
+         <p><a class="link" href="/users/<%= current_user.id %>/checkfollowing">Following: <%= current_user.followed.count %></a> 
+          <a class="link" href="/users/<%= current_user.id %>/checkfollowers">Followers: <%= current_user.followers.count %></a></p>
          <p>Meows: <%= current_user.tweets.count %> </p>
       </div>
     </div>

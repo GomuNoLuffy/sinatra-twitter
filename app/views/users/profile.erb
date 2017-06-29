@@ -10,25 +10,25 @@
         <h4>@<%= @user.username %></h4>
 
         <% if current_user && current_user.id == params[:id].to_i %>
-     <form action="/users/<%= @user.id %>/edit">
-       <input type="submit" value="Edit Profile" class="btn btn-default">
-     </form>
-<% elsif current_user.following?(@user) %>
-	<form action="/users/<%= @user.id %>/unfollow" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-		<input type="submit" value="Unfollow" class="btn btn-default">
-	</form>
-<% else %>
-    <form action="/users/<%= @user.id %>/follow" method="post">
-    <input type="submit" value="Follow" class="btn btn-default">
-  </form>
-<% end %> 
-        </div>
+          <form action="/users/<%= @user.id %>/edit">
+            <input type="submit" value="Edit Profile" class="btn btn-default">
+          </form>
+        <% elsif current_user.following?(@user) %>
+	        <form action="/users/<%= @user.id %>/unfollow" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+		          <input type="submit" value="Unfollow" class="btn btn-default">
+	        </form>
+        <% else %>
+          <form action="/users/<%= @user.id %>/follow" method="post">
+            <input type="submit" value="Follow" class="btn btn-default">
+          </form>
+        <% end %> 
       </div>
+    </div>
       <div class="panel-body">
                <p style="text-align: center;">Meows: <%= @user.tweets.count %> </p>
-         <p style="text-align: center;">Following: <a class="link" href="/users/<%= @user.id %>/checkfollowing"><%= @user.followed.count %></a> 
-         Followers: <a class="link" href="/users/<%= @user.id %>/checkfollowers"><%= @user.followers.count %></a></p>
+         <p style="text-align: center;"><a class="link" href="/users/<%= @user.id %>/checkfollowing">Following: <%= @user.followed.count %></a> 
+          <a class="link" href="/users/<%= @user.id %>/checkfollowers">Followers: <%= @user.followers.count %></a></p>
 
       </div>
     </div>
